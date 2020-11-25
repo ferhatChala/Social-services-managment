@@ -1,0 +1,31 @@
+{% extends 'App/base.html' %}
+{% block content %}
+
+
+<div class="panel-group">
+
+    <div class="panel panel-success">
+       <div class="panel-heading"> <h2>Demender un nouvell prime :</h2></div>
+    </div>
+
+    <div class="panel panel-success">
+       <div class="panel-body">
+
+        <div class="form-group">
+           <form method="POST" enctype="multipart/form-data">
+              {% csrf_token %}
+              {{ form.as_p }}
+              <input type="submit" class="btn btn-success" value="Submit">
+           </form>
+        </div>
+
+       </div>
+    </div>
+
+</div>
+
+ 
+
+ 
+
+ {% endblock %}

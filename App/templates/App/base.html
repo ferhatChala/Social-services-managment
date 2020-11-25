@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>Social Service</title>
+    <!--  Bootstarp -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
+    
+    <!-- pour les table -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!--  Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/blog.css'%}">
+
+    <!-- fonts 
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+     -->
+     
+</head>
+<body>
+
+    <!--  Nav Bar  -->
+    <nav class="navbar navbar-default ">
+        <div class="container">
+            <ul class="nav navbar-nav">
+                <li><a class="navbar-brand" href="#">Social Service</a></li>
+                <li><a href="{% url 'info' %}">info</a></li>
+                <li><a href="#">contact</a></li>
+                
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                {% if user.is_authenticated %}
+                <li><a href="{% url 'prime_new' %}">New prime</a></li>
+                <li><a href="{% url 'prime_list' %}">Mes primes</a></li>
+                <li><a href="#"> Bonjour,{{ user.username }}</a></li>
+                <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-log-out"></span> Log out </a></li>
+                {% else %}
+                <li><a class="nav navbar-right" href="{% url 'login' %}">  <span class="glyphicon glyphicon-user"></span> Log in</a></li>
+                {% endif %}
+            </ul>
+        </div>
+
+
+    </nav>
+
+    <!--  Content block  -->
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+    
+</body>
+</html>
