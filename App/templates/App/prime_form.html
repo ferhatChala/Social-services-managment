@@ -2,27 +2,21 @@
 {% block content %}
 
 <div class="container">
-<div class="panel-group">
 
-    <div class="panel panel-success">
-       <div class="panel-heading"> <h2>Demender un nouvell prime :</h2></div>
-    </div>
-
-    <div class="panel panel-success">
-       <div class="panel-body">
-
+   <div class="card">
+      <h5 class="card-header"> Demender une nouvelle prime : </h5>
+      <div class="card-body">
+        <h5 class="card-title">Selectioné le type de primes ainsi que le justification .</h5>
         <div class="form-group">
            <form method="POST" enctype="multipart/form-data">
-              {% csrf_token %}
-              {{ form.as_p }}
-              <input type="submit" class="btn btn-success" value="Submit">
+               {% csrf_token %}
+               {{ form.as_p }}
+               <input type="submit" class="btn btn-outline-primary" value="Submit">
            </form>
-        </div>
+         </div>
 
-       </div>
-    </div>
-
-</div>
+      </div>
+  </div>
 
 </div>
 
