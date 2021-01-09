@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django.urls import reverse
+from django.contrib.auth.models import User
 # Create your models here.
 
 class Prime(models.Model):
@@ -40,5 +41,15 @@ class Article(models.Model):
 
     def __str__(self):
         return self.name
+    
+
+class Employer(models.Model):
+    user = models.OneToOneField(User,null=True,on_delete=models.CASCADE)
+    nom = models.CharField(max_length=200,null=True)
+    phone = models.CharField(max_length=15,null=True)
+    email = models.CharField(max_length=200,null=True)
+
+    def __str__(self):
+        return self.nom 
 
 

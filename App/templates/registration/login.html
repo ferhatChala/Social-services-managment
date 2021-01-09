@@ -1,5 +1,4 @@
 {% extends 'App/base.html' %}
-
 {% block content %}
 <div class="container">
 
@@ -14,7 +13,8 @@
           <form action="{% url 'login' %}" method="POST">
             {% csrf_token %}
             {{form.as_p}}
-                <input type="submit" class="btn btn-outline-primary" value="Login">            
+                <input type="submit" class="btn btn-outline-primary" value="Login">     
+                <a href="#" class="register"> + Create new account !</a>       
                 <input type="hidden" name="next" value="{{next}}">
             </form>
         </div>
